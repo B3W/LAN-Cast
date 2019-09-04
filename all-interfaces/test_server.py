@@ -26,15 +26,16 @@ import lancast_server
 import signal
 
 
-def int_handler(signum, stack_frame):
-    lancast_server.kill_server()
+def sigint_handler(signum, stack_frame):
+    if signum == signal.SIGINT:
+        lancast_server.kill_server()
 
 
 if __name__ == '__main__':
     access_port = 10001
 
     # Setup SIGINT handler
-    signal.signal(signal.SIGINT, int_handler)
+    signal.signal(signal.SIGINT, sigint_handler)
 
     try:
         # Setup server to receive and respond to broadcasts
