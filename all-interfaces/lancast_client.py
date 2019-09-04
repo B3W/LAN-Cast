@@ -93,8 +93,7 @@ def broadcast(msg, broadcast_ip, broadcast_port, data_queue):
                     data_queue.append('Received: \'%s\' from IP \'%s\''
                                       % (data, src_addr[0]))
 
-                    if data == 'stop':
-                        done = True
+                    done = True
 
             except socket.timeout:
                 pass

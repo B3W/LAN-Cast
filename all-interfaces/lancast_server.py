@@ -64,7 +64,6 @@ def receive_broadcasts(broadcast_port):
 
                     # Send data back
                     sock.sendto('Broadcast Received'.encode('utf-8'), src_addr)
-                    sock.sendto('stop'.encode('utf-8'), src_addr)
 
             except socket.timeout:
                 pass
